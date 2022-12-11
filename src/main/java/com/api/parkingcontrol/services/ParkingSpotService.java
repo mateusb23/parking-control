@@ -29,4 +29,8 @@ public class ParkingSpotService {
         return parkingSpotRepository.existsByApartmentAndBlock(apartment, block);
     }
 
+    public Object findAll() {
+        return null;
+    }
+
 }
