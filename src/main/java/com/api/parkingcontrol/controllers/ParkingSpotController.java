@@ -33,7 +33,7 @@ public class ParkingSpotController {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: Parking Spot already in use!");
         }
         if(parkingSpotService.existsByApartmentAndBlock(parkingSpotDto.getApartment(), parkingSpotDto.getBlock())) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: Parking Spot already registered!");
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: Parking Spot already registered for this apartment/block!");
         }
 
         var parkingSpotModel = new ParkingSpotModel();
