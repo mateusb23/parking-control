@@ -16,5 +16,5 @@ public class ParkingSpotService {
     public Object save(ParkingSpotModel parkingSpotModel) {
         return parkingSpotRepository.save(parkingSpotModel);
     }
-    
+
 }
