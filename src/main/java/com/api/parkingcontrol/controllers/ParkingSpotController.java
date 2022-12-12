@@ -62,4 +62,6 @@ public class ParkingSpotController {
         return ResponseEntity.status(HttpStatus.OK).body(parkingSpotModelOptional.get());
     }
 
+    @DeleteMapping
+
 }
