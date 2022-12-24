@@ -2,7 +2,7 @@ package com.api.parkingcontrol.controllers;
 
 import com.api.parkingcontrol.dtos.ParkingSpotDto;
 import com.api.parkingcontrol.models.ParkingSpotModel;
-import com.api.parkingcontrol.services.ParkingSpotService;
+import com.api.parkingcontrol.services.ParkingSpotServiceImpl;
 import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +28,7 @@ public class ParkingSpotController {
     }*/
 
     @Autowired
-    private ParkingSpotService parkingSpotService;
+    private ParkingSpotServiceImpl parkingSpotService;
 
     @PostMapping
     public ResponseEntity<Object> saveParkingSpot(@RequestBody @Valid ParkingSpotDto parkingSpotDto) {
