@@ -3,6 +3,7 @@ package com.api.parkingcontrol.services;
 import com.api.parkingcontrol.models.ParkingSpotModel;
 import com.api.parkingcontrol.repositories.ParkingSpotRepository;
 import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,10 +12,15 @@ import java.util.UUID;
 
 @Service
 public class ParkingSpotService {
-    private final ParkingSpotRepository parkingSpotRepository;
+
+    /*private final ParkingSpotRepository parkingSpotRepository;
+
     public ParkingSpotService(ParkingSpotRepository parkingSpotRepository) {
         this.parkingSpotRepository = parkingSpotRepository;
-    }
+    }*/
+
+    @Autowired
+    private ParkingSpotRepository parkingSpotRepository;
 
     @Transactional
     public Object save(ParkingSpotModel parkingSpotModel) {
