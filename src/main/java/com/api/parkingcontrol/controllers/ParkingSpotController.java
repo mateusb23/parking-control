@@ -2,10 +2,15 @@ package com.api.parkingcontrol.controllers;
 
 import com.api.parkingcontrol.dtos.ParkingSpotDto;
 import com.api.parkingcontrol.models.ParkingSpotModel;
-import com.api.parkingcontrol.services.ParkingSpotServiceImpl;
+import com.api.parkingcontrol.services.ParkingSpotService;
 import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +33,17 @@ public class ParkingSpotController {
     }*/
 
     @Autowired
-    private ParkingSpotServiceImpl parkingSpotService;
+    @Qualifier("parkingSpotServiceImpl")
+    private ParkingSpotService parkingSpotService;
+
+    @Value("${app.name}")
+    private String appName;
+
+    @Value("${app.port}")
+    private String appPort;
+
+    @Value("${app.host}")
+    private String appHost;
 
     @PostMapping
     public ResponseEntity<Object> saveParkingSpot(@RequestBody @Valid ParkingSpotDto parkingSpotDto) {
@@ -50,9 +65,13 @@ public class ParkingSpotController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ParkingSpotModel>> getAllParkingSpots() {
+    public ResponseEntity<Page<ParkingSpotModel>> getAllParkingSpots(@PageableDefault(page = 0, size = 10, sort = "id") Pageable pageable) {
 
-        return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.findAll());
+        System.out.println("App Name: " + appName);
+        System.out.println("App Port: " + appPort);
+        System.out.println("App Host: " + appHost);
+
+        return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.findAll(pageable));
     }
 
     @GetMapping("/{id}")
