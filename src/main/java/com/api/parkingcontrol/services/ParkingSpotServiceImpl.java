@@ -3,7 +3,6 @@ package com.api.parkingcontrol.services;
 import com.api.parkingcontrol.models.ParkingSpotModel;
 import com.api.parkingcontrol.repositories.ParkingSpotRepository;
 import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -15,14 +14,11 @@ import java.util.UUID;
 @Service
 public class ParkingSpotServiceImpl implements ParkingSpotService {
 
-    /*private final ParkingSpotRepository parkingSpotRepository;
+    private final ParkingSpotRepository parkingSpotRepository;
 
-    public ParkingSpotService(ParkingSpotRepository parkingSpotRepository) {
+    public ParkingSpotServiceImpl(ParkingSpotRepository parkingSpotRepository) {
         this.parkingSpotRepository = parkingSpotRepository;
-    }*/
-
-    @Autowired
-    private ParkingSpotRepository parkingSpotRepository;
+    }
 
     @Transactional
     public ParkingSpotModel save(ParkingSpotModel parkingSpotModel) {
