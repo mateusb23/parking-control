@@ -1,5 +1,6 @@
 package com.api.parkingcontrol.controllers;
 
+import com.api.parkingcontrol.configs.MyBean;
 import com.api.parkingcontrol.dtos.ParkingSpotDto;
 import com.api.parkingcontrol.models.ParkingSpotModel;
 import com.api.parkingcontrol.services.ParkingSpotService;
@@ -36,6 +37,9 @@ public class ParkingSpotController {
     @Qualifier("parkingSpotServiceImpl")
     private ParkingSpotService parkingSpotService;
 
+    @Autowired
+    private MyBean myBean;
+
     @Value("${app.name}")
     private String appName;
 
@@ -70,6 +74,7 @@ public class ParkingSpotController {
         System.out.println("App Name: " + appName);
         System.out.println("App Port: " + appPort);
         System.out.println("App Host: " + appHost);
+        myBean.method();
 
         return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.findAll(pageable));
     }
