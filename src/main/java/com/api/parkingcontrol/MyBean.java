@@ -1,4 +1,4 @@
-package com.api.parkingcontrol.configs;
+package com.api.parkingcontrol;
 
 public class MyBean {
 
