@@ -4,6 +4,7 @@ import com.api.parkingcontrol.models.ParkingSpotModel;
 import com.api.parkingcontrol.repositories.ParkingSpotRepository;
 import com.api.parkingcontrol.services.ParkingSpotService;
 import jakarta.transaction.Transactional;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -12,9 +13,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+@Primary
 @Service
 public class ParkingSpotServiceImpl implements ParkingSpotService {
-
     private final ParkingSpotRepository parkingSpotRepository;
 
     public ParkingSpotServiceImpl(ParkingSpotRepository parkingSpotRepository) {

@@ -10,6 +10,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.Scope;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -25,6 +27,8 @@ import java.util.UUID;
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/parking-spot")
+@Scope("prototype")
+@PropertySource("classpath:custom.properties")
 public class ParkingSpotController {
 
     /*private final ParkingSpotService parkingSpotService;
@@ -52,6 +56,13 @@ public class ParkingSpotController {
     @Value("${app.host}")
     private String appHost;
 
+    @Value("${message}")
+    private String message;
+
+    public ParkingSpotController() {
+        System.out.println("ParkingSpotController created!!");
+    }
+
     @PostMapping
     public ResponseEntity<Object> saveParkingSpot(@RequestBody @Valid ParkingSpotDto parkingSpotDto) {
 
@@ -78,6 +89,7 @@ public class ParkingSpotController {
         System.out.println("App Port: " + appPort);
         System.out.println("App Host: " + appHost);
         myBean.method();
+        System.out.println(message);
 
         return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.findAll(pageable));
     }
