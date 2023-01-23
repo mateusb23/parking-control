@@ -14,7 +14,7 @@ public class ParkingSpotServiceImplV2 implements ParkingSpotService {
 
 
     @Override
-    public ParkingSpotModel save(ParkingSpotModel parkingSpotModel) {
+    public ParkingSpotModel saveParking(ParkingSpotModel parkingSpotModel) {
         return null;
     }
 

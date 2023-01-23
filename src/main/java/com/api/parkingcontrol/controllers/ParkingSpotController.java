@@ -82,7 +82,7 @@ public class ParkingSpotController {
         var parkingSpotModel = new ParkingSpotModel();
         BeanUtils.copyProperties(parkingSpotDto, parkingSpotModel);
         parkingSpotModel.setRegistrationDate(LocalDateTime.now(ZoneId.of("UTC")));
-        return ResponseEntity.status(HttpStatus.CREATED).body(parkingSpotServiceImpl.save(parkingSpotModel));
+        return ResponseEntity.status(HttpStatus.CREATED).body(parkingSpotServiceImpl.saveParking(parkingSpotModel));
     }
 
     //@PreAuthorize("hasRole('ROLE_ADMIN', 'ROLE_USER')")
@@ -160,7 +160,7 @@ public class ParkingSpotController {
         parkingSpotModel.setId(parkingSpotModelOptional.get().getId());
         parkingSpotModel.setRegistrationDate(parkingSpotModelOptional.get().getRegistrationDate());
 
-        return ResponseEntity.status(HttpStatus.OK).body(parkingSpotServiceImpl.save(parkingSpotModel));
+        return ResponseEntity.status(HttpStatus.OK).body(parkingSpotServiceImpl.saveParking(parkingSpotModel));
     }
 
 }

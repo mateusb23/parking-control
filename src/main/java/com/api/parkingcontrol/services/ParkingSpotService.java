@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public interface ParkingSpotService {
 
-    ParkingSpotModel save(ParkingSpotModel parkingSpotModel);
+    ParkingSpotModel saveParking(ParkingSpotModel parkingSpotModel);
     Boolean existsByLicensePlateCar(String licensePlateCar);
     Boolean existsByParkingSpotNumber(String parkingspotNumber);
     Boolean existsByApartmentAndBlock(String apartment, String block);

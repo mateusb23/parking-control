@@ -23,7 +23,7 @@ public class ParkingSpotServiceImpl implements ParkingSpotService {
     }
 
     @Transactional
-    public ParkingSpotModel save(ParkingSpotModel parkingSpotModel) {
+    public ParkingSpotModel saveParking(ParkingSpotModel parkingSpotModel) {
         return parkingSpotRepository.save(parkingSpotModel);
     }
 
