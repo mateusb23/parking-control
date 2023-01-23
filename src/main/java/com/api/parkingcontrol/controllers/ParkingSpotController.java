@@ -33,10 +33,10 @@ import java.util.UUID;
 @PropertySource("classpath:custom.properties")
 public class ParkingSpotController {
 
-    /*private final ParkingSpotService parkingSpotService;
+    /*private final ParkingSpotServiceImpl parkingSpotServiceImpl;
 
-    public ParkingSpotController(ParkingSpotService parkingSpotService) {
-        this.parkingSpotService = parkingSpotService;
+    public ParkingSpotController(ParkingSpotServiceImpl parkingSpotServiceImpl) {
+        this.parkingSpotServiceImpl = parkingSpotServiceImpl;
     }*/
 
     @Autowired
