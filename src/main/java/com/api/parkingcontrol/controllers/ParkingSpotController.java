@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -87,7 +88,7 @@ public class ParkingSpotController {
 
     //@PreAuthorize("hasRole('ROLE_ADMIN', 'ROLE_USER')")
     @GetMapping
-    public ResponseEntity<Page<ParkingSpotModel>> getAllParkingSpots(@PageableDefault(page = 0, size = 10, sort = "id") Pageable pageable) {
+    public ResponseEntity<List<ParkingSpotModel>> getAllParkingSpots() {
 
         System.out.println("App Name: " + appName);
         System.out.println("App Port: " + appPort);
@@ -95,7 +96,7 @@ public class ParkingSpotController {
         myBean.method();
         System.out.println(message);
 
-        return ResponseEntity.status(HttpStatus.OK).body(parkingSpotServiceImpl.findAll(pageable));
+        return ResponseEntity.status(HttpStatus.OK).body(parkingSpotServiceImpl.findAll());
     }
 
     //@PreAuthorize("hasRole('ROLE_ADMIN','ROLE_USER')")
