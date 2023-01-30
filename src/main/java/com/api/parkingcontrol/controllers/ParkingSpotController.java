@@ -15,6 +15,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -88,7 +89,7 @@ public class ParkingSpotController {
 
     //@PreAuthorize("hasRole('ROLE_ADMIN', 'ROLE_USER')")
     @GetMapping
-    public ResponseEntity<Page<ParkingSpotModel>> getAllParkingSpots(@PageableDefault(page = 0, size = 10, sort = "id") Pageable pageable) {
+    public ResponseEntity<Page<ParkingSpotModel>> getAllParkingSpots(@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
 
         System.out.println("App Name: " + appName);
         System.out.println("App Port: " + appPort);
